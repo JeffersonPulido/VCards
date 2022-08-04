@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: rgb(255, 255, 255);">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="San Miguel Facatativa's Digital Business Card">
+  <meta property="twitter:title" content="San Miguel Facatativa's Digital Business Card">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+    "http" == window.location.href.substr(0, 4) && "/" != window.location.href.slice(-1) && window.location.replace(window.location.href + "/");
+  </script>
+  <!---->
+  <title>San Miguel Facatativa VCard</title>
+  <!---->
+  <link rel="stylesheet" href="./style.min.css">
+  
+</head>
+
+<body id="body">
+  <div id="modal" style="background-color: rgb(27, 99, 43); visibility: hidden; top: 2rem; opacity: 0;">
+    <div id="closeModal"><a id="close" class="closeBtnColor">
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg></div>
+      </a></div>
+    <div id="modalView">
+      <div id="keyInfo">
+        <p class="text">
+          Use my public key to send me encrypted messages
+        </p> <a download="" target="_blank" id="dlKey" rel="noreferrer" tabindex="-1"
+          style="background-color: rgb(106, 180, 45);" href="./San Miguel El Rosal's public key.asc">
+          <div class="icon action"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+              stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4m4-5l5 5 5-5m-5 5V3"></path>
+            </svg></div> <span class="action">Download Key</span>
+        </a>
+      </div>
+      <div id="copyView">
+        <p class="text">
+          Copia y envía este esta URL para compartir nuestra tarjeta digital
+        </p> <button id="copyURL" style="background-color: rgb(106, 180, 45);">
+          <div class="icon action"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+              stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+            </svg></div> <span class="action">Copy URL</span>
+        </button>
+      </div>
+      <div id="qrView">
+        <div id="qr"></div>
+        <h2 class="text">Escanea el codigo QR</h2>
+        <p class="text">Para ver nuestra tarjeta digital en otro dispositivo</p>
+      </div>
+    </div>
+  </div>
+  <header><img id="logo" src="logo.png" alt="Logo">
+    <div id="topActions" style="display: none;">
+      <div><a id="share">
+          <div class="icon topAction"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+              clip-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="black"
+              stroke-width="2">
+              <circle cx="17" cy="5" r="3"></circle>
+              <circle cx="5" cy="12" r="3"></circle>
+              <circle cx="17" cy="19" r="3"></circle>
+              <path d="M7.59 13.51l6.83 3.98m-.01-10.98l-6.82 3.98"></path>
+            </svg></div>
+        </a> <a id="showQR" style="display:none;">
+          <div class="icon topAction"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+              clip-rule="evenodd" stroke-linejoin="round">
+              <g fill="none" stroke="black" stroke-width="2">
+                <path d="M4 4h4v4H4zm0 12h4v4H4zM16 4h4v4h-4z"></path>
+                <path d="M12 3v15a2 2 0 002 2h4a2 2 0 002-2v-4a2 2 0 00-2-2H3"></path>
+              </g>
+              <path fill="#fff" d="M15 15h2v2h-2z"></path>
+            </svg></div>
+        </a></div>
+      <!---->
+    </div>
+  </header>
+  <main style="background-color: rgb(27, 99, 43);">
+    <div id="profile">
+      <img src="./photo.jpeg" alt="Photo">
+      <div id="info">
+        <p class="name text">San Miguel Facatativa</p>
+        <!---->
+        <p class="jobtitle text"></p>
+        <p class="jobtitle text">Agroinsumos San Miguel SAS</p>
+        <p class="jobtitle text">
+          <strong>PBX (601) 892 1011</strong>
+        </p>
+      </div>
+    </div>
+    <hr>
+    <!-- DIVISIONES -->
+    <div class="container-fluid">
+      <!-- CONTACTOS -->
+      <div class="row">
+        <div class="col-xs-6">
+          <p class="jobtitleArea">Contabilidad</p>
+        </div>
+        <!--DESCARGAR-->
+        <div class="col-xs-3 actionsC">
+          <div class="actionBtn">
+            <a href="contabilidad.vcf" download="" target="_blank" rel="noopener noreferrer" aria-label="call"
+              style="background-color: rgb(106, 180, 45);">
+              <div class="icon action">
+                <i class="fas fa-address-book"></i>
+              </div>
+            </a>
+            <p class="text">+57 320 8430281</p>
+          </div>
+        </div>
+        <!--WHATSAPP-->
+        <div class="col-xs-3 actionsC">
+          <div class="actionBtn">
+            <a href="https://wa.me/+573208430281" target="_blank" rel="noopener noreferrer" aria-label="call"
+              style="background-color: rgb(106, 180, 45);">
+              <div class="icon action">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+            </a>
+            <p class="text">WhatsApp</p>
+          </div>
+        </div>
+      </div>
+      <!-- CONTACTOS -->
+      <div class="row">
+        <div class="col-xs-6">
+          <p class="jobtitleArea">RR.HH</p>
+        </div>
+        <!--DESCARGAR-->
+        <div class="col-xs-3 actionsC">
+          <div class="actionBtn">
+            <a href="rrhh.vcf" download="" target="_blank" rel="noopener noreferrer" aria-label="call"
+              style="background-color: rgb(106, 180, 45);">
+              <div class="icon action">
+                <i class="fas fa-address-book"></i>
+              </div>
+            </a>
+            <p class="text">+57 320 3226685</p>
+          </div>
+        </div>
+        <!--WHATSAPP-->
+        <div class="col-xs-3 actionsC">
+          <div class="actionBtn">
+            <a href="https://wa.me/+573203226685" target="_blank" rel="noopener noreferrer" aria-label="call"
+              style="background-color: rgb(106, 180, 45);">
+              <div class="icon action">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+            </a>
+            <p class="text">WhatsApp</p>
+          </div>
+        </div>
+      </div>
+      <!-- CONTACTOS -->
+      <div class="row">
+        <div class="col-xs-6">
+          <p class="jobtitleArea">Proveedores</p>
+        </div>
+        <!--DESCARGAR-->
+        <div class="col-xs-3 actionsC">
+          <div class="actionBtn">
+            <a href="compras.vcf" download="" target="_blank" rel="noopener noreferrer" aria-label="call"
+              style="background-color: rgb(106, 180, 45);">
+              <div class="icon action">
+                <i class="fas fa-address-book"></i>
+              </div>
+            </a>
+            <p class="text">+57 313 3570825</p>
+          </div>
+        </div>
+        <!--WHATSAPP-->
+        <div class="col-xs-3 actionsC">
+          <div class="actionBtn">
+            <a href="https://wa.me/+573133570825" target="_blank" rel="noopener noreferrer" aria-label="call"
+              style="background-color: rgb(106, 180, 45);">
+              <div class="icon action">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+            </a>
+            <p class="text">WhatsApp</p>
+          </div>
+        </div>
+      </div>
+      <!-- CONTACTOS -->
+      <hr>
+      <div class="row">
+        <div class="col-xs-6">
+          <p class="jobtitleArea">Clientes</p>
+        </div>
+        <!--DESCARGAR-->
+        <div class="col-xs-3 actionsC">
+          <div class="actionBtn">
+            <a href="agricola.vcf" download="" target="_blank" rel="noopener noreferrer" aria-label="call"
+              style="background-color: rgb(106, 180, 45);">
+              <div class="icon action">
+                <i class="fas fa-address-book"></i>
+              </div>
+            </a>
+            <p class="text">+57 313 3597380</p>
+          </div>
+        </div>
+        <!--WHATSAPP-->
+        <div class="col-xs-3 actionsC">
+          <div class="actionBtn">
+            <a href="https://wa.me/+573133597380" target="_blank" rel="noopener noreferrer" aria-label="call"
+              style="background-color: rgb(106, 180, 45);">
+              <div class="icon action">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+            </a>
+            <p class="text">WhatsApp</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--BOTONES-->
+    <div class="actions ">
+      <div id="cta">
+        <!--MAIL-->
+        <a id="vcard" rel="noreferrer" target="_blank" aria-label="Save Contact"
+          style="background-color: rgb(106, 180, 45); width: 100%; padding: 1rem 1.5rem; text-decoration: none;"
+          href="mailto:info@sanmiguelsas.com">
+          <div class="icon action">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <p class="action">info@sanmiguelsas.com</p>
+        </a>
+      </div>
+      <div id="cta">
+        <!--WEB-->
+        <a id="vcard" rel="noreferrer" target="_blank" aria-label="Save Contact"
+          style="background-color: rgb(106, 180, 45); width: 100%; padding: 1rem 1.5rem; text-decoration: none;"
+          href="https://www.sanmiguelsas.com">
+          <div class="icon action">
+            <i class="fas fa-globe"></i>
+          </div>
+          <p class="action">Pagina Web</p>
+        </a>
+      </div>
+    </div>
+    <hr>
+    <div class="actions ">
+      <div id="cta">
+        <!--UBICACION-->
+        <a id="vcard" rel="noreferrer" target="_blank" aria-label="Save Contact"
+          style="background-color: rgb(106, 180, 45); width: 100%; padding: 1rem 1.5rem; text-decoration: none;"
+          href="https://g.page/agroinsumos-san-miguel-sas-?share">
+          <div class="icon action">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <p class="action">Ubicacion Sucursal</p>
+        </a>
+      </div>
+    </div>
+    <!--INFO-->
+    <p class="jobtitle text"></p>
+    <!--MAPA-->
+    <div class="attachments">
+      <h2 class="section text"></h2>
+      <div>
+        <div class="content embedded">
+          <iframe
+            style="border: 2px solid gray;"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.761312604059!2d-74.35735609999999!3d4.8109972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f7c6034020d8d%3A0xe748bff75210d3a5!2sAgroinsumos%20San%20Miguel%20Sas%20Facatativ%C3%A1!5e0!3m2!1ses!2sco!4v1655137517738!5m2!1ses!2sco"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+    <!--REDES-->
+    <div>
+      <div class="actions secondary">
+        <div class="actionsC">
+          <a href="https://instagram.com/sanmiguelsas_co" target="_blank" rel="noopener noreferrer"
+            aria-label="instagram" class="redes">
+            <i class="fa-brands fa-instagram"></i> Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright -->
+    <div class="actions secondary">
+      <div class="actionsC">
+        <div class="row">
+          <div class="col-lg-12">
+            <p class="p-smallC">2022 Copyright © Agroinsumos San Miguel - <a href="https://jeffersonpulido.netlify.app" target="_blank" style="text-decoration: underline; color: white;">Jefferson Pulido</a></p>
+          </div> <!-- end of col -->
+        </div> <!-- enf of row -->
+      </div> <!-- end of container -->
+    </div> <!-- end of copyright --> 
+    <!-- end of copyright -->
+  </main>
+  <!---->
+  <script>let m = document.getElementById("modal"), c = document.getElementById("close"), ki = document.getElementById("keyInfo"), cv = document.getElementById("copyView"), curl = document.getElementById("copyURL"), qrv = document.getElementById("qrView"), qr = document.getElementById("qr"), s = document.getElementById("share"), sqr = document.getElementById("showQR"), sk = document.getElementById("showKey"); function tC(e) { "2rem" == e.style.top ? (e.style.visibility = "visible", e.style.top = "0px", e.style.opacity = 1) : (e.style.top = "2rem", e.style.opacity = 0, setTimeout(() => { e.style.visibility = "hidden" }, 200)) } function dN(e) { e.style.display = "none" } window.addEventListener("load", () => { document.querySelector("#topActions").style.display = "flex", qr.innerHTML = new QRCode({ content: window.location.href, container: "svg-viewbox", join: !0, ecl: "L", padding: 0 }).svg() }), navigator.canShare ? s.addEventListener("click", () => { navigator.share({ title: document.title, text: "Comparte nuestra presentación digital aquí:", url: window.location.href }) }) : s.addEventListener("click", () => { tC(m), cv.style.display = "flex", dN(qrv), ki && dN(ki) }), sqr.addEventListener("click", () => { tC(m), qrv.style.display = "block", dN(cv), ki && dN(ki) }), sk && sk.addEventListener("click", () => { tC(m), ki && (ki.style.display = "flex"), dN(cv), dN(qrv) }), c.addEventListener("click", () => tC(m)), curl.addEventListener("click", async () => { let e = curl.querySelectorAll(".action")[1]; await navigator.clipboard.writeText(window.location.href).then(t => { e.innerText = "Copied", setTimeout(() => { e.innerText = "Copy URL" }, 1e3) }) });</script>
+  <script>let pC = document.querySelectorAll(".pCtrl"), pP = document.querySelectorAll(".playPause"), srcs = document.querySelectorAll(".source"); srcs.forEach(e => { e.style.pointerEvents = "none", e.removeAttribute("controls") }), pC.forEach((e, l) => { e.style.display = "flex"; let r = e.querySelector(".currentTime"), s = e.querySelector(".seekBar"), t = e.querySelector(".playPause"), a = t.querySelector(".play"), c = t.querySelector(".pause"); srcs[l].addEventListener("timeupdate", () => { let e = srcs[l].currentTime, t = 100 / srcs[l].duration * e; s.value = t, 100 == t && (s.value = 0, a.style.display = "block", c.style.display = "none"); let o = Math.floor(e / 60), y = Math.floor(e % 60); o.toString().length < 2 && (o = "0" + o), y.toString().length < 2 && (y = "0" + y), r.value = o + ":" + y }), s.addEventListener("change", () => { srcs[l].currentTime = srcs[l].duration * (parseInt(s.value) / 100) }), t.addEventListener("click", () => { srcs[l].paused ? (srcs.forEach((e, r) => { l != r && (e.paused || e.pause()) }), pP.forEach((e, l) => { let r = e.querySelector(".play"), s = e.querySelector(".pause"); r.style.display = "block", s.style.display = "none" }), srcs[l].play(), a.style.display = "none", c.style.display = "block") : (srcs[l].pause(), c.style.display = "none", a.style.display = "block") }) });</script>
+</body>
+
+</html>
